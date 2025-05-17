@@ -1,131 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>tongyu's website</title>
+
+  <!-- 加入 Font Awesome Icon CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
+      margin: 0;
+      padding: 0;
       color: #333;
     }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 260px;
+      background: #fff;
+      border-right: 1px solid #e0e0e0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .sidebar img {
+      width: 160px;
+      height: 160px;
+      border-radius: 20px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+    }
+
+    .sidebar h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .sidebar p {
+      color: #666;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 20px;
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      color: #0366d6;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px;
+      max-width: 1000px;
+    }
+
     h1 {
-      font-size: 22px;
-      color: #1a1a1a;
-      margin-bottom: 10px;
-      text-align: left;
-      font-weight: bold;
+      font-size: 26px;
+      margin-top: 0;
     }
+
     h2 {
-      color: #444;
+      font-size: 20px;
       margin-top: 40px;
-      font-size: 18px;
+      color: #444;
     }
+
     ul {
       list-style-type: none;
       padding-left: 0;
     }
+
     li {
       margin-bottom: 12px;
     }
+
     a {
       color: #0366d6;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     .year {
       font-weight: bold;
       margin-top: 20px;
       font-size: 16px;
     }
+
     .contrib-heading {
       font-weight: bold;
       margin-top: 30px;
       font-size: 16px;
     }
+
     .sub-list {
       margin-top: 5px;
       margin-bottom: 15px;
-      margin-left: 0;
-      padding-left: 0;
     }
+
     .sub-list li {
       padding-left: 0;
       text-align: left;
     }
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .content {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>tongyu's website</h1>
 
-  <h2>Projects</h2>
+<div class="layout">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="https://github.com/tongyu0924.png" alt="Profile Picture" />
+    <h2>徐家萱</h2>
+    <p>Undergraduate student in CSIE at NTUST</p>
+    <div class="social-icons">
+      <a href="https://github.com/tongyu0924" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="winnie920924@gmail.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
 
-  <div class="year">2025</div>
-  <ul>
-    <li><a href="https://github.com/tongyu0924/VSTFusion-VO">VSTFusion-VO</a> – Visual Odometry using Video Swin Transformer and depth fusion.</li>
-    <li><a href="https://github.com/tongyu0924/js3d-demos">Three.js 3D Demos</a> – Interactive 3D web demos built with Three.js.</li>
-    <li><a href="https://github.com/tongyu0924/GPT-MultiRole-Debate-with-Speech">GPT Multi-Role Debate with Speech</a> – A multi-agent debate system with LLM and speech output.</li>
-  </ul>
+  <!-- Main Content -->
+  <div class="content">
+    <h1>About Me</h1>
+    <p>
+      I'm Chia-Hsuan Hsu (tongyu, @tongyu0924), an undergraduate student in Computer Science and Information Engineering at National Taiwan University of Science and Technology (NTUST).
+      I'm an undergraduate research student at HIS-LAB, advised by Prof. Yung-Yao Chen, and was part of the Core Team at Google Developer Groups (GDG) On Campus NTUST in 2023.
+    </p>
 
-  <div class="year">2024</div>
-  <ul>
-    <li><a href="https://github.com/tongyu0924/ntust-order-system">NTUST Order System</a> – Web food ordering system.</li>
-    <li><a href="https://github.com/tongyu0924/ORB-based-Visual-Odometry">ORB-based Visual Odometry</a> – Visual odometry system with ORB + Essential matrix + RANSAC.</li>
-    <li><a href="https://github.com/tongyu0924/YOLOv8---KITTI">YOLOv8 - KITTI</a> – Object detection project for NTUST GDG Computer Vision course.</li>
-  </ul>
+    <h2>Projects</h2>
+    <div class="year">2025</div>
+    <ul>
+      <li><a href="https://github.com/tongyu0924/VSTFusion-VO">VSTFusion-VO</a> – Visual Odometry using Video Swin Transformer and depth fusion.</li>
+      <li><a href="https://github.com/tongyu0924/js3d-demos">Three.js 3D Demos</a> – Interactive 3D web demos built with Three.js.</li>
+      <li><a href="https://github.com/tongyu0924/GPT-MultiRole-Debate-with-Speech">GPT Multi-Role Debate with Speech</a> – A multi-agent debate system with LLM and speech output.</li>
+    </ul>
 
-  <div class="year">2023</div>
-  <ul>
-    <li><a href="https://github.com/tongyu0924/Backpropagation">Backpropagation from Scratch</a> – Neural network with backward propagation written in NumPy.</li>
-    <li><a href="https://github.com/tongyu0924/ChessBoard">ChessBoard</a> – A small Python project to draw chessboards.</li>
-  </ul>
+    <div class="year">2024</div>
+    <ul>
+      <li><a href="https://github.com/tongyu0924/ntust-order-system">NTUST Order System</a> – Web food ordering system.</li>
+      <li><a href="https://github.com/tongyu0924/ORB-based-Visual-Odometry">ORB-based Visual Odometry</a> – Visual odometry system with ORB + Essential matrix + RANSAC.</li>
+      <li><a href="https://github.com/tongyu0924/YOLOv8---KITTI">YOLOv8 - KITTI</a> – Object detection project for NTUST GDG Computer Vision course.</li>
+    </ul>
 
-  <div class="year">2022</div>
-  <ul>
-    <li><a href="./note_2022.html">Computer Vision Notes</a> – Notes and code on computer vision fundamentals.</li>
-  </ul>
+    <div class="year">2023</div>
+    <ul>
+      <li><a href="https://github.com/tongyu0924/Backpropagation">Backpropagation from Scratch</a> – Neural network with backward propagation written in NumPy.</li>
+      <li><a href="https://github.com/tongyu0924/ChessBoard">ChessBoard</a> – A small Python project to draw chessboards.</li>
+    </ul>
 
-  <h2>Open Source Contributions</h2>
-  <div class="contrib-heading">Major contributions:</div>
-  <ul>
-    <li>
-      <strong><a href="https://github.com/microsoft/autogen">Microsoft AutoGen</a></strong>
-      <ul class="sub-list">
-        <li><a href="https://github.com/microsoft/autogen/pull/6057">PR #6057</a></li>
-      </ul>
-    </li>
-    <li>
-      <strong><a href="https://github.com/huggingface/diffusers">Hugging Face Diffusers</a></strong>
-      <ul class="sub-list">
-        <li><a href="https://github.com/huggingface/diffusers/pull/11426">PR #11426</a></li>
-        <li><a href="https://github.com/huggingface/diffusers/pull/11427">PR #11427</a></li>
-        <li><a href="https://github.com/huggingface/diffusers/pull/11431">PR #11431</a></li>
-        <li><a href="https://github.com/huggingface/diffusers/pull/11475">PR #11475</a></li>
-      </ul>
-    </li>
-  </ul>
+    <div class="year">2022</div>
+    <ul>
+      <li><a href="./note_2022.html">Computer Vision Notes</a> – Notes and code on computer vision fundamentals.</li>
+    </ul>
 
-  <div class="contrib-heading">Other notable contributions:</div>
-  <ul>
-    <li><a href="https://github.com/the-turing-way/the-turing-way">The Turing Way</a> – Outside collaborator</li>
-    <li><a href="https://github.com/scikit-learn/scikit-learn">Scikit-learn</a></li>
-    <li><a href="https://github.com/tensorzero/tensorzero">TensorZero</a></li>
-    <li><a href="https://github.com/ersilia-os/ersilia">Ersilia</a></li>
-    <li><a href="https://github.com/harmonydata/harmony">Harmony</a></li>
-  </ul>
+    <h2>Open Source Contributions</h2>
+    <div class="contrib-heading">Major contributions:</div>
+    <ul>
+      <li>
+        <strong><a href="https://github.com/microsoft/autogen">Microsoft AutoGen</a></strong>
+        <ul class="sub-list">
+          <li><a href="https://github.com/microsoft/autogen/pull/6057">PR #6057</a></li>
+        </ul>
+      </li>
+      <li>
+        <strong><a href="https://github.com/huggingface/diffusers">Hugging Face Diffusers</a></strong>
+        <ul class="sub-list">
+          <li><a href="https://github.com/huggingface/diffusers/pull/11426">PR #11426</a></li>
+          <li><a href="https://github.com/huggingface/diffusers/pull/11427">PR #11427</a></li>
+          <li><a href="https://github.com/huggingface/diffusers/pull/11431">PR #11431</a></li>
+          <li><a href="https://github.com/huggingface/diffusers/pull/11475">PR #11475</a></li>
+        </ul>
+      </li>
+    </ul>
 
-  <h2>一些高中的東西</h2>
-  <ul>
-    <li><a href="interview_2022.html">111台科資工面試</a> – 台科資工面試題目 & 心得</li>
-    <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/B1OVx19VK">圖論</a> – 歐拉路徑&漢米爾頓路徑</li>
-    <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/HylRz1n4K">動態規劃</a> – DP解題方法</li>
-    <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/rkek9NUWgg">AP325圖論</a> – AP325圖論程式碼</li>
-  </ul>
+    <div class="contrib-heading">Other notable contributions:</div>
+    <ul>
+      <li><a href="https://github.com/the-turing-way/the-turing-way">The Turing Way</a> – Outside collaborator</li>
+      <li><a href="https://github.com/scikit-learn/scikit-learn">Scikit-learn</a></li>
+      <li><a href="https://github.com/tensorzero/tensorzero">TensorZero</a></li>
+      <li><a href="https://github.com/ersilia-os/ersilia">Ersilia</a></li>
+      <li><a href="https://github.com/harmonydata/harmony">Harmony</a></li>
+    </ul>
+
+    <h2>一些高中的東西</h2>
+    <ul>
+      <li><a href="interview_2022.html">111台科資工面試</a> – 台科資工面試題目 & 心得</li>
+      <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/B1OVx19VK">圖論</a> – 歐拉路徑&漢米爾頓路徑</li>
+      <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/HylRz1n4K">動態規劃</a> – DP解題方法</li>
+      <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/rkek9NUWgg">AP325圖論</a> – AP325圖論程式碼</li>
+    </ul>
+  </div>
+</div>
+
 </body>
 </html>
+
