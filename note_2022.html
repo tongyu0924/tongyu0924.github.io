@@ -147,29 +147,184 @@ while True:
 cap.release()
 cv2.destroyAllWindows()</code></pre>
 
-  <h2>Video Segmentation with KMeans</h2>
-  <pre><code>import numpy as np
-from sklearn.cluster import KMeans
+  <h2>Image Segmentation</h2>
+  <pre><code>import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import os
+from tqdm import tqdm
 import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torchvision
+import torch.optim as optim
+from torchvision.models.segmentation import deeplabv3_resnet50
 
-color_array = np.random.choice(range(256), 256 * 256 * 3).reshape(-1,3)
-label_model = KMeans(n_clusters=2)
-label_model.fit(color_array)
+pretrained_model = deeplabv3_resnet50(pretrained=True)
 
-videoPath = 'Cars.mp4'
-cap = cv2.VideoCapture(videoPath)
+model = pretrained_model
 
-while cap.isOpened():
+model.classifier = nn.Conv2d(2048, 3, kernel_size=1)
+
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+
+
+def split_input_mask(path):
+    inputs = []
+    masks = []
+    for file in os.listdir(path):
+        img = os.path.join(path, file)
+        img = cv2.imread(img)
+        a = img[:, :256]
+        inputs.append(a)
+        b = img[:, 256:]
+        masks.append(b)
+
+    return inputs, masks
+
+path = "/kaggle/input/cityscapes-image-pairs/cityscapes_data/train"
+inputs, masks = split_input_mask(path)
+
+
+class ImgDataset(torch.utils.data.Dataset):
+    def __init__(self, x, y=None, transform=None):
+        self.x = x
+        self.y = y
+
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.x)
+
+    def __getitem__(self, idx):
+        X = self.x[idx]
+        if self.transform is not None:
+            X = self.transform(X)
+
+        if self.y is not None:
+            Y = self.y[idx]
+            Y = self.transform(Y)
+            return X, Y
+
+        return X
+        
+
+import torchvision.transforms as transforms
+
+#train_transform = transforms.Compose([
+#    transforms.ToPILImage(),
+#    transforms.RandomHorizontalFlip(),
+#    transforms.RandomRotation(15),
+#    transforms.Resize((256, 256)),
+#    transforms.ToTensor(),
+#])
+
+train_transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Resize((224, 224)),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+])
+
+batch_size = 128
+train_set = ImgDataset(inputs, masks, train_transform)
+train_loader = torch.utils.data.DataLoader(train_set, batch_size=batch_size, shuffle=True)
+
+for epoch in range(10):
+    running_loss = 0.0
+    for inputs, labels in train_loader:
+        outputs = model(inputs)
+        loss = criterion(outputs['out'], labels)
+        
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        
+        running_loss += loss.item()
+        
+        print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, 30, running_loss))
+
+
+
+path = "/kaggle/input/cityscapes-image-pairs/cityscapes_data/train/1.jpg"
+input_tensor = inputs[2]
+image = cv2.imread(path)
+
+train_transform = transforms.Compose([
+    transforms.ToPILImage(),
+    transforms.Resize((224, 224)),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    transforms.ToTensor(),
+])
+
+#input_batch = train_transform(input_tensor)
+with torch.no_grad():
+    output = model(input_tensor.unsqueeze(0))['out'][0]
+    
+output_predictions = output.argmax(0)
+plt.imshow(output_predictions)</code></pre>
+
+<h2>Faster R-CNN Object Detection</h2>
+  <pre><code>import torch
+import torchvision
+from torchvision.models.detection import FasterRCNN
+from torchvision.transforms import functional as F
+from PIL import Image
+
+model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
+model.eval()
+
+image_path = "C:/Users/user/Desktop/data/06.jpg"
+image = Image.open(image_path)
+
+image_tensor = F.to_tensor(image).unsqueeze(0)
+
+with torch.no_grad():
+    prediction = model(image_tensor)
+
+boxes = prediction[0]['boxes']
+scores = prediction[0]['scores']
+labels = prediction[0]['labels']
+
+for box, score, label in zip(boxes, scores, labels):
+    print(f"Label: {label}, Score: {score:.2f}, Box: {box}")</code></pre>
+
+  <h2>YOLOv4-tiny Object Detection with OpenCV</h2>
+  <pre><code>import cv2
+net = cv2.dnn.readNet("C:/Users/user/Desktop/dnn_model/yolov4-tiny.weights", "C:/Users/user/Desktop/dnn_model/yolov4-tiny.cfg")
+model = cv2.dnn_DetectionModel(net)
+model.setInputParams(size=(320, 320), scale=1/255)
+
+classes = []
+with open("C:/Users/user/Desktop/dnn_model/classes.txt", "r") as file_object:
+    for class_name in file_object.readlines():
+        class_name = class_name.strip()
+        classes.append(class_name)
+print("Objects list")
+print(classes)
+
+cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
+while True:
     ret, frame = cap.read()
-    frame = cv2.resize(frame, (256, 256))
-    label_class = label_model.predict(frame.reshape(-1,3)).reshape(256,256).astype(np.float32)
-    label_class = cv2.cvtColor(label_class, cv2.COLOR_GRAY2BGR)
-    cv2.imshow("img", label_class)
-    if cv2.waitKey(30) == ord("q"):
-        break
-cap.release()
-cv2.destroyAllWindows()</code></pre>
+
+    (class_ids, scores, bboxes) = model.detect(frame)
+    for class_id, score, bbox in zip(class_ids, scores, bboxes):
+        (x, y, w, h) = bbox
+        class_name = classes[class_id]
+        cv2.putText(frame, str(class_name), (x, y-5), cv2.FONT_HERSHEY_PLAIN, 1, (200, 0, 50), 2)
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (200, 0, 50), 3)
+    print("class ids", class_ids)
+    print("scores", scores)
+    print("bboxes", bboxes)
+
+    cv2.imshow("Frame", frame)
+    cv2.waitKey(1)</code></pre>
 
 </body>
 </html>
