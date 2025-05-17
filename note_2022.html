@@ -7,37 +7,57 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #fefefe;
       padding: 40px;
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
       color: #333;
     }
     h1 {
-      text-align: center;
-      color: #222;
+      font-size: 24px;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    p.intro {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 40px;
     }
     h2 {
-      color: #444;
-      margin-top: 40px;
+      color: #2c3e50;
+      margin-top: 50px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+    .desc {
+      margin: 10px 0 5px 0;
+      font-style: italic;
+      color: #555;
     }
     pre {
-      background: #f0f0f0;
-      padding: 10px;
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
       overflow-x: auto;
-      border-left: 3px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     code {
       font-family: Consolas, monospace;
-      font-size: 14px;
+      font-size: 15px;
+      display: block;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
   </style>
 </head>
 <body>
   <h1>Computer Vision Code Notes</h1>
+  <p class="intro">This is a personal notebook of computer vision code snippets and experiments from 2022. Topics include object detection, tracking, segmentation, and more.</p>
 
   <h2>Object Tracking with DeepSORT</h2>
-  <pre><code>import cv2
+  <div class="desc">Combines YOLOv5 for object detection and DeepSORT for multi-object tracking using bounding box re-identification.</div>
+  <pre><code class="language-python">import cv2
 import numpy as np
 import sys
 import glob
@@ -123,7 +143,8 @@ cap.release()
 cv2.destroyAllWindows()</code></pre>
 
   <h2>Vehicle Detection and Counting</h2>
-  <pre><code>import cv2
+  <div class="desc">Counts vehicles crossing a horizontal line in the video using YOLOv5.</div>
+  <pre><code class="language-python">import cv2
 import numpy as np
 import torch
 
@@ -147,8 +168,9 @@ while True:
 cap.release()
 cv2.destroyAllWindows()</code></pre>
 
-  <h2>Image Segmentation</h2>
-  <pre><code>import numpy as np # linear algebra
+  <h2>Semantic Segmentation with DeepLabV3</h2>
+  <div class="desc">Trains a DeepLabV3 segmentation model on custom data by splitting images and masks, applying transforms, and using a modified classifier for 3 output classes.</div>
+  <pre><code class="language-python">import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import os
 from tqdm import tqdm
@@ -268,7 +290,8 @@ output_predictions = output.argmax(0)
 plt.imshow(output_predictions)</code></pre>
 
 <h2>Faster R-CNN Object Detection</h2>
-  <pre><code>import torch
+<div class="desc">Detects objects using a pretrained Faster R-CNN model from TorchVision with ResNet50-FPN as backbone.</div>
+  <pre><code class="language-python">import torch
 import torchvision
 from torchvision.models.detection import FasterRCNN
 from torchvision.transforms import functional as F
@@ -293,6 +316,7 @@ for box, score, label in zip(boxes, scores, labels):
     print(f"Label: {label}, Score: {score:.2f}, Box: {box}")</code></pre>
 
   <h2>YOLOv4-tiny Object Detection with OpenCV</h2>
+  <div class="desc">Performs real-time object detection with OpenCV using YOLOv4-tiny and DNN module.</div>
   <pre><code>import cv2
 net = cv2.dnn.readNet("C:/Users/user/Desktop/dnn_model/yolov4-tiny.weights", "C:/Users/user/Desktop/dnn_model/yolov4-tiny.cfg")
 model = cv2.dnn_DetectionModel(net)
