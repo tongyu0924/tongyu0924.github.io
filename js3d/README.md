@@ -1,6 +1,9 @@
 # Night Scene with Stars and Reflections
 
+![Demo Screenshot](img.png)
+
 This is a visual scene built using [Three.js](https://threejs.org/), featuring a starry night sky, a reflective blue water surface, dynamic ripples, and glowing sci-fi elements.
+
 
 ---
 
