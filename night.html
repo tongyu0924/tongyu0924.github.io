@@ -34,7 +34,7 @@
   const starPoints = new THREE.Points(stars, starMat);
   scene.add(starPoints);
 
-  // 星星倒影（模糊、淡藍灰、縮小、不會太亮）
+  // 星星倒影
   const reflectedStars = new THREE.BufferGeometry();
   const reflectedVerts = [];
   for (let i = 0; i < starVerts.length; i += 3) {
