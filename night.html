@@ -25,16 +25,16 @@
   for (let i = 0; i < 800; i++) {
     starVerts.push(
       (Math.random() - 0.5) * 200,
-      Math.random() * 100,
+      Math.random() * 70 + 30,
       (Math.random() - 0.5) * 200
     );
   }
   stars.setAttribute('position', new THREE.Float32BufferAttribute(starVerts, 3));
-  const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.22, sizeAttenuation: true });
+  const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.24, sizeAttenuation: true });
   const starPoints = new THREE.Points(stars, starMat);
   scene.add(starPoints);
 
-  // 星空倒影
+  // 星星倒影（模糊、淡藍灰、縮小、不會太亮）
   const reflectedStars = new THREE.BufferGeometry();
   const reflectedVerts = [];
   for (let i = 0; i < starVerts.length; i += 3) {
@@ -46,14 +46,15 @@
   }
   reflectedStars.setAttribute('position', new THREE.Float32BufferAttribute(reflectedVerts, 3));
   const reflectedMat = new THREE.PointsMaterial({
-    color: 0x4477aa,
-    size: 0.22,
+    color: 0x336699,            
+    size: 0.22,                 
     transparent: true,
-    opacity: 0.045,
-    sizeAttenuation: true,
+    opacity: 0.05,               
+    sizeAttenuation: false,
     depthWrite: false,
     blending: THREE.MultiplyBlending
   });
+
   const reflectedPoints = new THREE.Points(reflectedStars, reflectedMat);
   scene.add(reflectedPoints);
 
@@ -192,7 +193,6 @@
     const t = clock.getElapsedTime();
 
     starMat.size = 0.22 + Math.sin(t * 2.5) * 0.08;
-    reflectedMat.size = starMat.size; // 同步倒影閃爍大小
 
     reflectiveSphere.rotation.y += 0.01;
     reflectiveSphere.position.y = 2 + Math.sin(t * 2) * 0.3;
@@ -228,4 +228,3 @@
 </script>
 </body>
 </html>
-
