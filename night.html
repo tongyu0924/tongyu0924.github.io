@@ -14,7 +14,7 @@
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
   camera.position.set(0, 3, 12);
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); 
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.outputEncoding = THREE.sRGBEncoding;
   document.body.appendChild(renderer.domElement);
@@ -30,7 +30,7 @@
     );
   }
   stars.setAttribute('position', new THREE.Float32BufferAttribute(starVerts, 3));
-  const starMat = new THREE.PointsMaterial({color: 0xffffff, size: 0.3, sizeAttenuation: true});
+  const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.3, sizeAttenuation: true });
   const starPoints = new THREE.Points(stars, starMat);
   scene.add(starPoints);
 
@@ -62,7 +62,7 @@
   water.rotation.x = -Math.PI / 2;
   scene.add(water);
 
-  // 淡淡表面光暈
+  // 表面光暈
   const surfaceGlow = new THREE.Mesh(
     new THREE.PlaneGeometry(200, 200),
     new THREE.MeshBasicMaterial({
@@ -152,7 +152,7 @@
   bigDome.position.set(0, 2.4, 0);
   scene.add(bigDome);
 
-  // 更亮的波紋
+  // 波紋
   const ripples = [];
   for (let i = 0; i < 3; i++) {
     const ripple = new THREE.Mesh(
@@ -168,6 +168,7 @@
     );
     ripple.rotation.x = -Math.PI / 2;
     ripple.userData.scale = 1.0 + i * 0.4;
+    ripple.renderOrder = 1; 
     scene.add(ripple);
     ripples.push(ripple);
   }
@@ -178,7 +179,6 @@
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
-    // 星星閃爍（可選）
     starMat.size = 1.0 + Math.sin(t * 2.5) * 0.2;
 
     reflectiveSphere.rotation.y += 0.01;
