@@ -4,87 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>tongyu's website</title>
-
-  <!-- 加入 Font Awesome Icon CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
+    :root {
+      --primary-color: #0a192f;
+      --accent-color: #007bff;
+      --bg-color: #ffffff;
+      --text-color: #333;
+      --text-light: #666;
+      --border-color: #e0e0e0;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
       margin: 0;
-      padding: 0;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
     }
 
     .layout {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    .sidebar {
-      width: 260px;
-      background: #fff;
-      border-right: 1px solid #e0e0e0;
+      max-width: 960px;
+      margin: 0 auto;
       padding: 40px 20px;
-      text-align: center;
     }
 
-    .sidebar img {
-      width: 160px;
-      height: 160px;
-      border-radius: 20px;
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .profile-header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 20px;
-      border: 2px solid #ccc;
     }
 
-    .sidebar h2 {
+    .profile-info h2 {
       margin: 0;
-      font-size: 20px;
+      font-size: 24px;
     }
 
-    .sidebar p {
-      color: #666;
+    .profile-info p {
+      margin: 4px 0 0;
+      color: var(--text-light);
       font-size: 14px;
-      margin-top: 6px;
     }
 
     .social-icons {
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     .social-icons a {
-      margin: 0 10px;
-      font-size: 20px;
-      color: #000;
+      margin-right: 10px;
+      font-size: 18px;
+      color: var(--text-color);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
     .social-icons a:hover {
-      color: #0366d6;
-    }
-
-    .content {
-      flex: 1;
-      padding: 40px;
-      max-width: 1000px;
+      color: var(--primary-color);
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 28px;
       margin-top: 0;
+      font-weight: 700;
     }
 
     h2 {
       font-size: 20px;
       margin-top: 40px;
-      color: #444;
+      color: var(--primary-color);
     }
 
     ul {
@@ -93,11 +92,11 @@
     }
 
     li {
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     a {
-      color: #0366d6;
+      color: var(--accent-color);
       text-decoration: none;
     }
 
@@ -105,16 +104,10 @@
       text-decoration: underline;
     }
 
-    .year {
+    .year, .contrib-heading {
       font-weight: bold;
-      margin-top: 20px;
       font-size: 16px;
-    }
-
-    .contrib-heading {
-      font-weight: bold;
       margin-top: 30px;
-      font-size: 16px;
     }
 
     .sub-list {
@@ -122,168 +115,145 @@
       margin-bottom: 15px;
     }
 
-    .sub-list li {
-      padding-left: 0;
-      text-align: left;
-    }
-
     @media (max-width: 768px) {
       .layout {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #e0e0e0;
-      }
-
-      .content {
         padding: 20px;
+      }
+
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
+  <div class="layout">
+    <div class="profile-header">
+      <img src="https://github.com/tongyu0924.png" alt="Profile Picture">
+      <div class="profile-info">
+        <h2>徐家萱</h2>
+        <p>Undergraduate student in CSIE at NTUST</p>
+        <div class="social-icons">
+          <a href="https://github.com/tongyu0924" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:winnie920924@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Main Content -->
+    <div class="content">
+      <h1>About Me</h1>
+      <p>
+        Hi, I'm Chia-Hsuan Hsu (<a href="https://github.com/tongyu0924" target="_blank">@tongyu0924</a>), 
+        an undergraduate student majoring in Computer Science and Information Engineering at 
+        National Taiwan University of Science and Technology (NTUST). In 2023 and 2024, I served as a 
+        Core Team Member at Google Developer Groups (GDG) On Campus NTUST.
+      </p>
 
-<div class="layout">
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <img src="https://github.com/tongyu0924.png" alt="Profile Picture" />
-    <h2>徐家萱</h2>
-    <p>Undergraduate student in CSIE at NTUST</p>
-    <div class="social-icons">
-      <a href="https://github.com/tongyu0924" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:winnie920924@gmail.com" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
+      <p>
+        I’m currently conducting research at Far Eastern Memorial Hospital, focusing on Large Language Models (LLMs) and their integration with reinforcement learning (RL) and agent for reasoning over electronic health records (EHRs).
+      </p>
+      
+      <p>
+        I also work part-time as an AI Engineer at 
+        Toppan Security, a company that specializes in 
+        digital identity verification solutions.
+      </p>
+      
+      <p>
+        In addition, I'm a co-developer of the open-source project 
+        <a href="https://github.com/JasonHonKL/spy-search" target="_blank">spy-search</a>, 
+        which has received over 300 GitHub stars and 40 forks.
+      </p>
+      
+      <p>
+        I'm passionate about knowledge sharing and actively engaged in the developer community. My research focuses on computer vision (CV), large language models (LLMs), and multimodal learning.
+        I also contribute to open-source projects in AI and machine learning, including <a href="https://github.com/microsoft/autogen">microsoft/autogen</a>,
+        <a href="https://github.com/huggingface/diffusers">huggingface/diffusers</a>, and
+        <a href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a>.
+      </p>
+      
+      <p>
+        Feel free to contact me. I'm always open to collaboration and meaningful exchange!
+      </p>    
+
+      <h2>Currently Collaborating</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/JasonHonKL/spy-search" target="_blank">Spy-Search: A Modular Multimodal Agent for Fast Research QA</a> – 
+          Co-developing a research project focused on an AI research assistant platform (★300+) that supports natural language queries, multimodal document QA, and tool-augmented reasoning by integrating both text and non-text modalities using LangChain and LLMs.
+
+        </li>
+      </ul>
+
+      <h2>Publications</h2>
+        <ul>
+          <li>
+            VSTFusion-VO: Monocular Visual Odometry with Video Swin Transformer Multimodal Fusion. <br />
+            <em>IEEE International Conference on Advanced Robotics and Intelligent Systems (ARIS), 2025.</em> 
+            [<a href="VSTFusion-VO.pdf" target="_blank">Paper</a>] [<a href="https://github.com/tongyu0924/VSTFusion-VO" target="_blank">Code</a>]
+          </li>
+        </ul>
+
+      <h2>Projects</h2>
+        <h3>AI / Machine Learning</h3>
+        <ul>
+          <li><a href="https://github.com/JasonHonKL/spy-search">Spy-Search</a> – Modular multimodal assistant for retrieval and QA, using LangChain and LLMs.</li>
+          <li><a href="https://github.com/tongyu0924/VSTFusion-VO">VSTFusion-VO</a> – Visual odometry using Video Swin Transformer and depth fusion. Accepted at ARIS 2025.</li>
+          <li><a href="https://github.com/tongyu0924/GPT-MultiRole-Debate-with-Speech">GPT Multi-Role Debate with Speech</a> – Multi-agent autonomous debate simulator with speech output.</li>
+          <li><a href="https://github.com/tongyu0924/ORB-based-Visual-Odometry">ORB-based Visual Odometry</a> – VO system using ORB features and RANSAC for pose estimation.</li>
+          <li><a href="https://github.com/tongyu0924/Secure-Diffusion-Watermarking-Survey">Secure Diffusion Watermarking Survey</a> – A study of traceability techniques in diffusion models.</li>
+        </ul>
+
+        <h3>Software Engineering</h3>
+        <ul>
+          <li><a href="https://github.com/tongyu0924/ntust-order-system">NTUST Order System</a> – Real-time food ordering platform built with Go and Firebase.</li>
+          <li><a href="https://github.com/tongyu0924/ChessBoard">ChessBoard</a> – Interactive chess game in C++ using ImGui with sound and real-time stats.</li>
+        </ul>
+
+
+      <h2>Open Source Contributions</h2>
+      <div class="contrib-heading">Major contributions:</div>
+      <ul>
+        <li>
+          <strong><a href="https://github.com/microsoft/autogen">Microsoft AutoGen</a></strong>
+          <ul class="sub-list">
+            <li><a href="https://github.com/microsoft/autogen/pull/6057">PR #6057</a></li>
+          </ul>
+        </li>
+        <li>
+          <strong><a href="https://github.com/huggingface/diffusers">Hugging Face Diffusers</a></strong>
+          <ul class="sub-list">
+            <li><a href="https://github.com/huggingface/diffusers/pull/11426">PR #11426</a></li>
+            <li><a href="https://github.com/huggingface/diffusers/pull/11427">PR #11427</a></li>
+            <li><a href="https://github.com/huggingface/diffusers/pull/11431">PR #11431</a></li>
+            <li><a href="https://github.com/huggingface/diffusers/pull/11475">PR #11475</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="contrib-heading">Other notable contributions:</div>
+      <ul>
+        <li><a href="https://github.com/the-turing-way/the-turing-way">The Turing Way</a> – Outside collaborator</li>
+        <li><a href="https://github.com/scikit-learn/scikit-learn">Scikit-learn</a></li>
+        <li><a href="https://github.com/argilla-io/distilabel">Argilla-io Distilabel</a></li>
+        <li><a href="https://github.com/tensorzero/tensorzero">TensorZero</a></li>
+        <li><a href="https://github.com/ersilia-os/ersilia">Ersilia</a></li>
+        <li><a href="https://github.com/harmonydata/harmony">Harmony</a></li>
+      </ul>
+
+      <h2>一些高中的東西</h2>
+      <ul>
+        <li><a href="interview_2022.html">111台科資工面試</a> – 台科資工面試題目 & 心得</li>
+        <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/B1OVx19VK">圖論</a> – 歐拉路徑&漢米爾頓路徑</li>
+        <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/rkek9NUWgg">AP325圖論</a> – AP325圖論程式碼</li>
+      </ul>
     </div>
   </div>
-
-  <!-- Main Content -->
-  <div class="content">
-    <h1>About Me</h1>
-    <p>
-      Hi, I'm Chia-Hsuan Hsu (<a href="https://github.com/tongyu0924" target="_blank">@tongyu0924</a>), 
-      an undergraduate student majoring in Computer Science and Information Engineering at 
-      National Taiwan University of Science and Technology (NTUST). In 2023 and 2024, I served as a 
-      Core Team Member at Google Developer Groups (GDG) On Campus NTUST.
-    </p>
-
-    <p>
-      I’m currently conducting research at Far Eastern Memorial Hospital, focusing on Large Language Models (LLMs) and their integration with reinforcement learning (RL) and agent for reasoning over electronic health records (EHRs).
-    </p>
-    
-    <p>
-      I also work part-time as an AI Engineer at 
-      Toppan Security, a company that specializes in 
-      digital identity verification solutions.
-    </p>
-    
-    <p>
-      In addition, I'm a co-developer of the open-source project 
-      <a href="https://github.com/JasonHonKL/spy-search" target="_blank">spy-search</a>, 
-      which has received over 300 GitHub stars and 40 forks.
-    </p>
-    
-    <p>
-      I'm passionate about knowledge sharing and actively engaged in the 
-      developer community. I contribute to open-source projects in 
-      AI and machine learning (including 
-      <a href="https://github.com/microsoft/autogen" target="_blank">microsoft/autogen</a>, 
-      <a href="https://github.com/huggingface/diffusers" target="_blank">huggingface/diffusers</a>, and 
-      <a href="https://github.com/scikit-learn/scikit-learn" target="_blank">scikit-learn</a>).
-    </p>
-    
-    <p>
-      Feel free to contact me. I'm always open to collaboration and meaningful exchange!
-    </p>    
-
-    <h2>Currently Collaborating</h2>
-    <ul>
-      <li>
-        <a href="https://github.com/JasonHonKL/spy-search" target="_blank">Spy-Search: A Modular Multimodal Agent for Fast Research QA</a> – 
-        Co-developing a research project focused on an AI research assistant platform (★200+) that supports natural language queries, multimodal document QA, and tool-augmented reasoning by integrating both text and non-text modalities using LangChain and LLMs.
-
-      </li>
-    </ul>
-
-    <h2>Projects</h2>
-    <div class="year">2025</div>
-    <ul>
-      <li>
-        <a href="https://github.com/tongyu0924/VSTFusion-VO">VSTFusion-VO</a> – Monocular visual odometry using Video Swin Transformer and depth fusion.  
-        Accepted at the IEEE International Conference on Advanced Robotics and Intelligent Systems (ARIS), 2025.  
-        [<a href="VSTFusion-VO.pdf">Paper</a>][<a href="https://github.com/tongyu0924/VSTFusion-VO">Code</a>]
-      </li>
-      <li>
-        <a href="https://github.com/tongyu0924/Secure-Diffusion-Watermarking-Survey">
-          Survey: Secure Watermarking and Traceability in Diffusion Models
-        </a> – Coursework report at National Taiwan University of Science and Technology.
-        [<a href="Survey__Secure_Watermarking_and_Traceability_in_Diffusion_Models.pdf">pdf</a>]
-      </li>
-        <a href="https://github.com/tongyu0924/Night-Scene-with-Stars-and-Reflections" target="_blank">js-3d-floating-sphere</a> – 
-        <a href="night.html" target="_blank">Live Demo</a> – 
-        A 3D scene built with Three.js featuring a floating reflective sphere, rippling water, and a starry night sky.
-      </li>
-      <li><a href="https://github.com/tongyu0924/js3d-demos">Three.js 3D Demos</a> – Interactive 3D web demos built with Three.js.</li>
-      <li><a href="https://github.com/tongyu0924/GPT-MultiRole-Debate-with-Speech">GPT Multi-Role Debate with Speech</a> – A multi-agent debate system with LLM and speech output.</li>
-    </ul>
-
-    <div class="year">2024</div>
-    <ul>
-      <li><a href="https://github.com/tongyu0924/ntust-order-system">NTUST Order System</a> – Web food ordering system.</li>
-      <li><a href="https://github.com/tongyu0924/ORB-based-Visual-Odometry">ORB-based Visual Odometry</a> – Visual odometry system with ORB + Essential matrix + RANSAC.</li>
-      <li><a href="https://github.com/tongyu0924/YOLOv8---KITTI">YOLOv8 - KITTI</a> – Object detection project for NTUST GDG Computer Vision course.</li>
-    </ul>
-
-    <div class="year">2023</div>
-    <ul>
-      <li><a href="https://github.com/tongyu0924/Backpropagation">Backpropagation from Scratch</a> – Neural network with backward propagation written in NumPy.</li>
-      <li><a href="https://github.com/tongyu0924/ChessBoard">ChessBoard</a> – A C++ chess game demo with ImGui-based GUI, music, and real-time FPS display.</li>
-    </ul>
-
-    <h2>Open Source Contributions</h2>
-    <div class="contrib-heading">Major contributions:</div>
-    <ul>
-      <li>
-        <strong><a href="https://github.com/microsoft/autogen">Microsoft AutoGen</a></strong>
-        <ul class="sub-list">
-          <li><a href="https://github.com/microsoft/autogen/pull/6057">PR #6057</a></li>
-        </ul>
-      </li>
-      <li>
-        <strong><a href="https://github.com/huggingface/diffusers">Hugging Face Diffusers</a></strong>
-        <ul class="sub-list">
-          <li><a href="https://github.com/huggingface/diffusers/pull/11426">PR #11426</a></li>
-          <li><a href="https://github.com/huggingface/diffusers/pull/11427">PR #11427</a></li>
-          <li><a href="https://github.com/huggingface/diffusers/pull/11431">PR #11431</a></li>
-          <li><a href="https://github.com/huggingface/diffusers/pull/11475">PR #11475</a></li>
-        </ul>
-      </li>
-    </ul>
-
-    <div class="contrib-heading">Other notable contributions:</div>
-    <ul>
-      <li><a href="https://github.com/the-turing-way/the-turing-way">The Turing Way</a> – Outside collaborator</li>
-      <li><a href="https://github.com/scikit-learn/scikit-learn">Scikit-learn</a></li>
-      <li><a href="https://github.com/argilla-io/distilabel">Argilla-io Distilabel</a></li>
-      <li><a href="https://github.com/tensorzero/tensorzero">TensorZero</a></li>
-      <li><a href="https://github.com/ersilia-os/ersilia">Ersilia</a></li>
-      <li><a href="https://github.com/harmonydata/harmony">Harmony</a></li>
-    </ul>
-
-    <h2>一些高中的東西</h2>
-    <ul>
-      <li><a href="interview_2022.html">111台科資工面試</a> – 台科資工面試題目 & 心得</li>
-      <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/B1OVx19VK">圖論</a> – 歐拉路徑&漢米爾頓路徑</li>
-      <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/HylRz1n4K">動態規劃</a> – DP解題方法</li>
-      <li><a href="https://hackmd.io/@TKVTzbKbQva3_DI0FGIcGw/rkek9NUWgg">AP325圖論</a> – AP325圖論程式碼</li>
-    </ul>
-  </div>
-</div>
 
 </body>
 </html>
