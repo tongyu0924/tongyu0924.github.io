@@ -20,7 +20,9 @@
       --border-color: #e0e0e0;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -36,6 +38,7 @@
       padding: 40px 20px;
     }
 
+    /* Navigation */
     .nav {
       display: flex;
       justify-content: space-between;
@@ -69,6 +72,7 @@
       color: var(--accent-color);
     }
 
+    /* Profile */
     .profile-header {
       display: flex;
       align-items: center;
@@ -110,10 +114,16 @@
       color: var(--accent-color);
     }
 
+    /* Content */
     h2 {
       font-size: 20px;
-      margin-top: 35px;
+      margin-top: 38px;
+      margin-bottom: 14px;
       color: var(--primary-color);
+    }
+
+    p {
+      margin-top: 0;
     }
 
     a {
@@ -121,7 +131,43 @@
       text-decoration: none;
     }
 
-    a:hover { text-decoration: underline; }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 0;
+    }
+
+    li {
+      margin-bottom: 18px;
+    }
+
+    /* Education / Experience row */
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    .entry-date {
+      color: var(--text-light);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .entry-description {
+      margin-top: 2px;
+      font-size: 15px;
+    }
 
     footer {
       margin-top: 60px;
@@ -132,28 +178,46 @@
     }
 
     @media (max-width: 768px) {
-      .layout { padding: 25px 20px; }
+      .layout {
+        padding: 25px 20px;
+      }
 
       .nav {
         align-items: flex-start;
         gap: 15px;
       }
 
-      .nav-links { gap: 14px; }
+      .nav-links {
+        gap: 14px;
+      }
 
       .profile-header {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .entry-header {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .entry-date {
+        margin-top: 2px;
       }
     }
   </style>
 </head>
 
 <body>
+
   <div class="layout">
 
+    <!-- Navigation -->
     <nav class="nav">
-      <a class="nav-name" href="./">Chia-Hsuan Hsu</a>
+
+      <a class="nav-name" href="./">
+        Chia-Hsuan Hsu
+      </a>
 
       <div class="nav-links">
         <a href="./" class="active">Home</a>
@@ -161,86 +225,243 @@
         <a href="publication/">Publications</a>
         <a href="opensource/">Open Source</a>
       </div>
+
     </nav>
 
+
+    <!-- Profile -->
     <div class="profile-header">
-      <img src="https://github.com/tongyu0924.png" alt="Profile Picture">
+
+      <img
+        src="https://github.com/tongyu0924.png"
+        alt="Profile Picture"
+      >
 
       <div class="profile-info">
+
         <h1>Chia-Hsuan Hsu (徐家萱)</h1>
+
         <p>
-          National Taiwan University of Science and Technology<br>
-          Department of Computer Science and Information Engineering
+          National Yang Ming Chiao Tung University<br>
+          M.S. in Electrical Engineering
         </p>
 
         <div class="social-icons">
-          <a href="https://github.com/tongyu0924" target="_blank" aria-label="GitHub">
+
+          <a
+            href="https://github.com/tongyu0924"
+            target="_blank"
+            aria-label="GitHub"
+          >
             <i class="fab fa-github"></i>
           </a>
-          <a href="mailto:winnie920924@gmail.com" aria-label="Email">
+
+          <a
+            href="mailto:winnie920924@gmail.com"
+            aria-label="Email"
+          >
             <i class="fas fa-envelope"></i>
           </a>
+
         </div>
+
       </div>
+
     </div>
 
+
     <main>
+
+      <!-- About -->
       <h2>About Me</h2>
 
       <p>
         Hi, I'm Chia-Hsuan Hsu
-        (<a href="https://github.com/tongyu0924" target="_blank">@tongyu0924</a>).
-        I graduated from the Department of Computer Science and Information Engineering
-        at National Taiwan University of Science and Technology (NTUST), and I am currently
-        pursuing an M.S. in Electrical Engineering at National Yang Ming Chiao Tung University (NYCU).
+        (<a
+          href="https://github.com/tongyu0924"
+          target="_blank"
+        >@tongyu0924</a>).
       </p>
 
       <p>
-        Passionate about Machine Learning, with a focus on AI Reasoning,
-        Reinforcement Learning, and Multimodal Learning.
+        Passionate about Machine Learning, with a focus on
+        AI Reasoning, Reinforcement Learning, and Multimodal Learning.
       </p>
 
+
+      <!-- Education -->
+      <h2>Education</h2>
+
+      <ul>
+
+        <li>
+
+          <div class="entry-header">
+
+            <span class="entry-title">
+              National Yang Ming Chiao Tung University (NYCU)
+            </span>
+
+            <span class="entry-date">
+              Sep 2026 – Present
+            </span>
+
+          </div>
+
+          <div class="entry-description">
+            M.S. in Electrical Engineering
+          </div>
+
+        </li>
+
+
+        <li>
+
+          <div class="entry-header">
+
+            <span class="entry-title">
+              National Taiwan University of Science and Technology (NTUST)
+            </span>
+
+            <span class="entry-date">
+              Sep 2022 – Jun 2026
+            </span>
+
+          </div>
+
+          <div class="entry-description">
+            B.S. in Computer Science and Information Engineering
+          </div>
+
+        </li>
+
+      </ul>
+
+
+      <!-- Experience -->
       <h2>Experience</h2>
 
       <ul>
-        <li>
-          <strong>Student Researcher, Far Eastern Memorial Hospital</strong>
-          <span style="color:#666;"> · Jun 2025 – Present</span><br>
-          Research on reinforcement learning and reasoning for large language models,
-          including clinical reasoning and latent-state refinement.
-        </li>
 
         <li>
-          <strong>AI Engineer (Part-Time), Toppan Security</strong>
-          <span style="color:#666;"> · Jun 2025 – Dec 2025</span><br>
-          Worked on model evaluation without ground truth, image augmentation,
-          and style-transfer-based data generation.
+
+          <div class="entry-header">
+
+            <span class="entry-title">
+              Student Researcher, Far Eastern Memorial Hospital
+            </span>
+
+            <span class="entry-date">
+              Jun 2025 – Present
+            </span>
+
+          </div>
+
+          <div class="entry-description">
+            Research on reinforcement learning and reasoning for large language models,
+            including clinical reasoning and latent-state refinement.
+          </div>
+
         </li>
 
-        <li>
-          <strong>Student Researcher, National Taiwan University of Science and Technology</strong>
-          <span style="color:#666;"> · May 2024 – Dec 2025</span><br>
-          Worked on bridge defect detection and camera-based visual localization,
-          including visual odometry and SLAM.
-        </li>
 
         <li>
-          <strong>Student Researcher, Academia Sinica</strong>
-          <span style="color:#666;"> · Sep 2023 – Mar 2025</span><br>
-          Researched diffusion-based generative models for conditional image generation
-          and identity-controllable face synthesis.
+
+          <div class="entry-header">
+
+            <span class="entry-title">
+              AI Engineer (Part-Time), Toppan Security
+            </span>
+
+            <span class="entry-date">
+              Jun 2025 – Dec 2025
+            </span>
+
+          </div>
+
+          <div class="entry-description">
+            Worked on model evaluation without ground truth,
+            image augmentation, and style-transfer-based data generation.
+          </div>
+
         </li>
 
+
         <li>
-          <strong>Google Developer Groups (GDG) On Campus NTUST</strong>
-          <span style="color:#666;"> · Sep 2023 – Jun 2024</span><br>
-          Designed and delivered Computer Vision courses and contributed to
-          machine learning content for an AI camp.
+
+          <div class="entry-header">
+
+            <span class="entry-title">
+              Student Researcher, National Taiwan University of Science and Technology
+            </span>
+
+            <span class="entry-date">
+              May 2024 – Dec 2025
+            </span>
+
+          </div>
+
+          <div class="entry-description">
+            Worked on bridge defect detection and camera-based visual localization,
+            including visual odometry and SLAM.
+          </div>
+
         </li>
+
+
+        <li>
+
+          <div class="entry-header">
+
+            <span class="entry-title">
+              Student Researcher, Academia Sinica
+            </span>
+
+            <span class="entry-date">
+              Sep 2023 – Mar 2025
+            </span>
+
+          </div>
+
+          <div class="entry-description">
+            Researched diffusion-based generative models for conditional image generation
+            and identity-controllable face synthesis.
+          </div>
+
+        </li>
+
+
+        <li>
+
+          <div class="entry-header">
+
+            <span class="entry-title">
+              Google Developer Groups (GDG) On Campus NTUST
+            </span>
+
+            <span class="entry-date">
+              Sep 2023 – Jun 2024
+            </span>
+
+          </div>
+
+          <div class="entry-description">
+            Designed and delivered Computer Vision courses and contributed to
+            machine learning content for an AI camp.
+          </div>
+
+        </li>
+
       </ul>
+
     </main>
 
-    <footer>© Chia-Hsuan Hsu</footer>
+
+    <footer>
+      © Chia-Hsuan Hsu
+    </footer>
+
   </div>
+
 </body>
 </html>
