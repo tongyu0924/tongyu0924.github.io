@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Tongyu</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+  <style>
+    :root {
+      --primary-color: #0a192f;
+      --accent-color: #007bff;
+      --bg-color: #ffffff;
+      --text-color: #333;
+      --text-light: #666;
+      --border-color: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .layout {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Top navigation */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 45px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      color: var(--accent-color);
+    }
+
+    /* Header */
+    .page-header {
+      margin-bottom: 40px;
+    }
+
+    .page-header h1 {
+      font-size: 32px;
+      color: var(--primary-color);
+      margin: 0 0 8px 0;
+    }
+
+    .page-header p {
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* Sections */
+    h2 {
+      font-size: 20px;
+      color: var(--primary-color);
+      margin-top: 45px;
+      margin-bottom: 15px;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .project:first-child {
+      padding-top: 0;
+    }
+
+    .project-title {
+      margin: 0 0 5px 0;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .project-title a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .project-title a:hover {
+      text-decoration: underline;
+    }
+
+    .project-description {
+      margin: 0;
+      color: var(--text-color);
+      font-size: 15px;
+    }
+
+    .project-meta {
+      margin-top: 7px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .project-meta i {
+      margin-right: 5px;
+    }
+
+    .project-links {
+      margin-top: 8px;
+    }
+
+    .project-links a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 14px;
+      margin-right: 14px;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        padding: 25px 20px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .page-header h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="layout">
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a class="nav-name" href="/">Chia-Hsuan Hsu</a>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/project/" class="active">Projects</a>
+      </div>
+    </nav>
+
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1>Projects</h1>
+      <p>
+        Selected projects in artificial intelligence, computer vision,
+        machine learning, and software engineering.
+      </p>
+    </header>
+
+
+    <!-- AI / Machine Learning -->
+    <section>
+      <h2>AI / Machine Learning</h2>
+
+      <div class="project-list">
+
+        <div class="project">
+          <div class="project-title">
+            <a href="https://github.com/JasonHonKL/spy-search" target="_blank">
+              Spy-Search
+            </a>
+          </div>
+
+          <p class="project-description">
+            A modular multimodal research assistant for retrieval and
+            question answering, integrating LangChain, LLMs, and
+            multimodal document understanding.
+          </p>
+
+          <div class="project-meta">
+            <i class="fa-solid fa-code"></i>
+            LLM · Multimodal · Agent · LangChain
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/JasonHonKL/spy-search" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            <a href="https://github.com/tongyu0924/VSTFusion-VO" target="_blank">
+              VSTFusion-VO
+            </a>
+          </div>
+
+          <p class="project-description">
+            Monocular visual odometry using Video Swin Transformer
+            multimodal fusion with visual and depth information.
+          </p>
+
+          <div class="project-meta">
+            <i class="fa-solid fa-code"></i>
+            Computer Vision · Visual Odometry · Transformer
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/tongyu0924/VSTFusion-VO" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+
+            <a href="https://ieeexplore.ieee.org/document/11163438" target="_blank">
+              <i class="fa-regular fa-file-lines"></i> Paper
+            </a>
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            <a
+              href="https://github.com/tongyu0924/GPT-MultiRole-Debate-with-Speech"
+              target="_blank"
+            >
+              GPT Multi-Role Debate with Speech
+            </a>
+          </div>
+
+          <p class="project-description">
+            A multi-agent autonomous debate simulator powered by GPT,
+            supporting multiple roles and speech output.
+          </p>
+
+          <div class="project-meta">
+            <i class="fa-solid fa-code"></i>
+            LLM · Multi-Agent · Speech
+          </div>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/tongyu0924/GPT-MultiRole-Debate-with-Speech"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            <a
+              href="https://github.com/tongyu0924/ORB-based-Visual-Odometry"
+              target="_blank"
+            >
+              ORB-based Visual Odometry
+            </a>
+          </div>
+
+          <p class="project-description">
+            A visual odometry system using ORB feature extraction,
+            feature matching, and RANSAC-based camera pose estimation.
+          </p>
+
+          <div class="project-meta">
+            <i class="fa-solid fa-code"></i>
+            Computer Vision · ORB · RANSAC
+          </div>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/tongyu0924/ORB-based-Visual-Odometry"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            <a
+              href="https://github.com/tongyu0924/Secure-Diffusion-Watermarking-Survey"
+              target="_blank"
+            >
+              Secure Diffusion Watermarking Survey
+            </a>
+          </div>
+
+          <p class="project-description">
+            A survey of secure watermarking and traceability techniques
+            for diffusion-based generative models.
+          </p>
+
+          <div class="project-meta">
+            <i class="fa-solid fa-code"></i>
+            Diffusion Models · Watermarking · Generative AI
+          </div>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/tongyu0924/Secure-Diffusion-Watermarking-Survey"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Software Engineering -->
+    <section>
+      <h2>Software Engineering</h2>
+
+      <div class="project-list">
+
+        <div class="project">
+          <div class="project-title">
+            <a
+              href="https://github.com/tongyu0924/ntust-order-system"
+              target="_blank"
+            >
+              NTUST Order System
+            </a>
+          </div>
+
+          <p class="project-description">
+            A real-time food ordering platform built with Go and Firebase.
+          </p>
+
+          <div class="project-meta">
+            <i class="fa-solid fa-code"></i>
+            Go · Firebase · Web
+          </div>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/tongyu0924/ntust-order-system"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+
+        <div class="project">
+          <div class="project-title">
+            <a
+              href="https://github.com/tongyu0924/ChessBoard"
+              target="_blank"
+            >
+              ChessBoard
+            </a>
+          </div>
+
+          <p class="project-description">
+            An interactive chess game implemented in C++ with ImGui,
+            including sound effects and real-time statistics.
+          </p>
+
+          <div class="project-meta">
+            <i class="fa-solid fa-code"></i>
+            C++ · ImGui · Game Development
+          </div>
+
+          <div class="project-links">
+            <a
+              href="https://github.com/tongyu0924/ChessBoard"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <footer>
+      © Chia-Hsuan Hsu
+    </footer>
+
+  </div>
+
+</body>
+</html>
