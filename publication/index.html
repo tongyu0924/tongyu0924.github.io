@@ -136,7 +136,13 @@
       text-decoration: underline;
     }
 
-    .preprint-list { counter-reset: publication 5; }
+    .preprint-list {
+      counter-reset: publication 5;
+    }
+
+    .technical-list {
+      counter-reset: publication 7;
+    }
 
     footer {
       margin-top: 60px;
@@ -183,7 +189,7 @@
 
     <header class="page-header">
       <h1>Publications</h1>
-      <p>Peer-reviewed publications and preprints.</p>
+      <p>Peer-reviewed publications, preprints, and technical reports.</p>
     </header>
 
     <section>
@@ -274,6 +280,29 @@
           Yung Wei Shueh, Zhi-Jie Chen, <strong>Chia-Hsuan Hsu</strong>, et al.
           <br>
           <span class="title">DIASENTINEL: An Auditable Multi-Agent System for Guideline-Grounded Diabetes Risk Screening.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Technical Reports</h2>
+
+      <ol class="publication-list technical-list">
+        <li>
+          <strong>Chia-Hsuan Hsu</strong>
+          <br>
+          <span class="title">
+            Secure Watermarking and Traceability in Diffusion Models: A Technical Survey.
+          </span>
+
+          <div class="links">
+            <a
+              href="https://www.researchgate.net/publication/412239396_Secure_Watermarking_and_Traceability_in_Diffusion_Models_A_Technical_Survey"
+              target="_blank"
+            >
+              [Report]
+            </a>
+          </div>
         </li>
       </ol>
     </section>
