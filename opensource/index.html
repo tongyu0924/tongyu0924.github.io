@@ -117,6 +117,42 @@
       margin-bottom: 6px;
     }
 
+    .project-card {
+      margin-top: 14px;
+    }
+
+    .project-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 20px;
+    }
+
+    .project-card p {
+      margin: 0 0 10px 0;
+    }
+
+    .project-card ul.features {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin: 0 0 12px 0;
+    }
+
+    .project-card ul.features li {
+      margin-bottom: 4px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .meta i { margin-right: 5px; }
+
+    .stats strong { color: var(--text-color); }
+
     footer {
       margin-top: 60px;
       padding-top: 20px;
@@ -155,12 +191,47 @@
     </nav>
 
     <header class="page-header">
-      <h1>Open Source Contributions</h1>
-      <p>Selected contributions to open-source AI and machine learning projects.</p>
+      <h1>Open Source</h1>
+      <p>Open-source AI and machine learning projects I have designed and developed, and selected contributions to open-source AI and machine learning projects.</p>
     </header>
 
     <section>
-      <h2>Major Contributions</h2>
+      <h2>Open Source Project</h2>
+
+      <div class="project-card">
+        <h3>
+          <a href="https://github.com/JasonHonKL/spy-search" target="_blank">Spy Search</a>
+        </h3>
+
+        <p>
+          Co-developed Spy Search, an open-source, modular multimodal research assistant and LLM
+          search engine, designed as a fast, low-cost alternative to commercial AI search tools such
+          as Perplexity. It combines web retrieval, multimodal document understanding, and LLM-based
+          reasoning to answer questions and generate long-form research reports from up-to-date sources.
+        </p>
+
+        <ul class="features">
+          <li>Multimodal retrieval and question answering over web pages and documents, not only plain text</li>
+          <li>Modular agent pipeline built with LangChain: retrieval, document understanding, and LLM synthesis into answers or reports</li>
+          <li>Works with cloud LLM APIs (OpenAI, Claude, Grok, etc.) or fully local models through Ollama</li>
+          <li>Web front end and API back end, deployable with Docker Compose</li>
+        </ul>
+
+        <div class="meta">
+          <span class="stats"><i class="fa-solid fa-star"></i><strong>385+</strong> stars</span>
+          <span class="stats"><i class="fa-solid fa-code-fork"></i><strong>48+</strong> forks</span>
+          <span><i class="fa-solid fa-code"></i>LLM · Multimodal · Agent · LangChain</span>
+        </div>
+
+        <a href="https://github.com/JasonHonKL/spy-search" target="_blank">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Open Source Contributions</h2>
+      <h3 style="font-size:17px;color:var(--primary-color);margin-bottom:0;">Major Contributions</h3>
 
       <ul>
         <li>
@@ -197,7 +268,7 @@
     </section>
 
     <section>
-      <h2>Other Notable Contributions</h2>
+      <h3 style="font-size:17px;color:var(--primary-color);margin-bottom:0;">Other Notable Contributions</h3>
 
       <ul>
         <li><a href="https://github.com/the-turing-way/the-turing-way" target="_blank">The Turing Way</a></li>
