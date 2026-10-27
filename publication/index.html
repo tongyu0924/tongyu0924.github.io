@@ -136,6 +136,10 @@
       text-decoration: underline;
     }
 
+    .manuscript-list {
+      counter-reset: publication 6;
+    }
+
     .technical-list {
       counter-reset: publication 7;
     }
@@ -185,7 +189,7 @@
 
     <header class="page-header">
       <h1>Publications</h1>
-      <p>Peer-reviewed publications and technical reports.</p>
+      <p>Peer-reviewed publications, manuscripts, and technical reports.</p>
     </header>
 
     <section>
@@ -282,31 +286,7 @@
 
         
 
-<li>
-          <strong>Chia-Hsuan Hsu</strong>, et al.
-          <br>
 
-          <span class="title">
-            Learning to Refine Hidden States for Reliable LLM Reasoning.
-          </span>
-          <br>
-
-          <div class="links">
-            <a
-              href="https://arxiv.org/pdf/2606.17524"
-              target="_blank"
-            >
-              [Paper]
-            </a>
-
-            <a
-              href="https://github.com/tongyu0924/Learning-to-Refine-Hidden-States-for-Reliable-LLM-Reasoning"
-              target="_blank"
-            >
-              [Code]
-            </a>
-          </div>
-        </li>
 
 
         
@@ -409,6 +389,45 @@
 
 
         
+      </ol>
+    </section>
+
+
+    <section>
+      <h2>Manuscripts</h2>
+
+      <ol class="publication-list manuscript-list">
+
+        <li>
+          <strong>Chia-Hsuan Hsu</strong>, et al.
+          <br>
+
+          <span class="title">
+            Learning to Refine Hidden States for Reliable LLM Reasoning.
+          </span>
+          <br>
+
+          <span class="venue">
+            arXiv preprint.
+          </span>
+
+          <div class="links">
+            <a
+              href="https://arxiv.org/pdf/2606.17524"
+              target="_blank"
+            >
+              [Paper]
+            </a>
+
+            <a
+              href="https://github.com/tongyu0924/Learning-to-Refine-Hidden-States-for-Reliable-LLM-Reasoning"
+              target="_blank"
+            >
+              [Code]
+            </a>
+          </div>
+        </li>
+
       </ol>
     </section>
 
