@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chia-Hsuan Hsu | Tongyu</title>
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  >
+  <title>Publications | Tongyu</title>
 
   <style>
     :root {
@@ -29,7 +24,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .layout {
@@ -38,12 +33,11 @@
       padding: 40px 20px;
     }
 
-    /* Navigation */
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 40px;
+      margin-bottom: 45px;
       padding-bottom: 15px;
       border-bottom: 1px solid var(--border-color);
     }
@@ -72,64 +66,79 @@
       color: var(--accent-color);
     }
 
-    /* Profile */
-    .profile-header {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 35px;
+    .page-header {
+      margin-bottom: 38px;
     }
 
-    .profile-header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .profile-info h1 {
-      margin: 0;
-      font-size: 28px;
+    .page-header h1 {
+      font-size: 32px;
       color: var(--primary-color);
+      margin: 0 0 8px 0;
     }
 
-    .profile-info p {
-      margin: 6px 0 0;
+    .page-header p {
+      margin: 0;
       color: var(--text-light);
-      font-size: 14px;
     }
 
-    .social-icons {
-      margin-top: 10px;
-    }
-
-    .social-icons a {
-      margin-right: 12px;
-      font-size: 18px;
-      color: var(--text-color);
-      text-decoration: none;
-    }
-
-    .social-icons a:hover {
-      color: var(--accent-color);
-    }
-
-    .social-icons .cv-link span {
-      font-size: 15px;
-      font-weight: 600;
-      vertical-align: 1px;
-    }
-
-    /* Content */
     h2 {
       font-size: 20px;
-      margin-top: 38px;
-      margin-bottom: 14px;
       color: var(--primary-color);
+      margin-top: 42px;
+      margin-bottom: 18px;
     }
 
-    p {
-      margin-top: 0;
+    .publication-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: publication;
+    }
+
+    .publication-list li {
+      counter-increment: publication;
+      position: relative;
+      padding-left: 2.2em;
+      margin-bottom: 22px;
+    }
+
+    .publication-list li::before {
+      content: "[" counter(publication) "]";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--text-color);
+    }
+
+    .title {
+      font-weight: 600;
+    }
+
+    .venue {
+      font-style: italic;
+    }
+
+    .award {
+      font-weight: 600;
+    }
+
+    .author-pos {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 0 8px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.7;
+      color: var(--accent-color);
+      border: 1px solid var(--accent-color);
+      border-radius: 10px;
+      vertical-align: 1px;
+      white-space: nowrap;
+    }
+
+    .author-note {
+      font-size: 13px;
+      color: var(--text-light);
     }
 
     a {
@@ -141,38 +150,22 @@
       text-decoration: underline;
     }
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin-top: 0;
+    .links {
+      margin-top: 4px;
     }
 
-    li {
-      margin-bottom: 18px;
+    .links a {
+      color: var(--accent-color);
+      text-decoration: none;
+      margin-right: 10px;
     }
 
-    /* Education / Experience row */
-    .entry-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 20px;
+    .links a:hover {
+      text-decoration: underline;
     }
 
-    .entry-title {
-      font-weight: 700;
-      color: var(--text-color);
-    }
-
-    .entry-date {
-      color: var(--text-light);
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .entry-description {
-      margin-top: 2px;
-      font-size: 15px;
+    .review-list {
+      counter-reset: publication 7;
     }
 
     footer {
@@ -197,300 +190,258 @@
         gap: 14px;
       }
 
-      .profile-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .entry-header {
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .entry-date {
-        margin-top: 2px;
+      .page-header h1 {
+        font-size: 28px;
       }
     }
   </style>
 </head>
 
 <body>
-
   <div class="layout">
 
-    <!-- Navigation -->
     <nav class="nav">
-
-      <a class="nav-name" href="./">
-        Chia-Hsuan Hsu
-      </a>
+      <a class="nav-name" href="../index.html">Chia-Hsuan Hsu</a>
 
       <div class="nav-links">
-        <a href="./" class="active">Home</a>
-        <a href="publication/">Publications</a>
-        <a href="opensource/">Open Source</a>
-        <a href="project/">Projects</a>
+        <a href="../index.html">Home</a>
+        <a href="./" class="active">Publications</a>
+        <a href="../opensource/">Open Source</a>
+        <a href="../project/">Projects</a>
       </div>
-
     </nav>
 
+    <header class="page-header">
+      <h1>Publications</h1>
+      <p>Peer-reviewed publications, preprints, papers under review, and ongoing work.</p>
+    </header>
 
-    <!-- Profile -->
-    <div class="profile-header">
+    <section>
+      <h2>Publications</h2>
 
-      <img
-        src="https://github.com/tongyu0924.png"
-        alt="Profile Picture"
-      >
-
-      <div class="profile-info">
-
-        <h1>Chia-Hsuan Hsu (徐家萱)</h1>
-
-        <p>
-          Research and Development in Machine Learning
-        </p>
-
-        <div class="social-icons">
-
-          <a
-            href="https://github.com/tongyu0924"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-        
-          <a
-            href="https://www.linkedin.com/in/chia-hsuan-hsu-880239252/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-        
-          <a
-            href="https://www.instagram.com/tongyu_0924/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
-        
-          <a
-            href="mailto:winnie920924@gmail.com"
-            aria-label="Email"
-          >
-            <i class="fas fa-envelope"></i>
-          </a>
-
-          <a
-            href="CV_ChiaHsuan_20261109.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="CV"
-            class="cv-link"
-          >
-            <span>CV</span>
-          </a>
-        
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <main>
-
-      <!-- About -->
-      <h2>About Me</h2>
-
-      <p>
-        Hi, I'm Chia-Hsuan Hsu
-        (<a href="https://github.com/tongyu0924" target="_blank">@tongyu0924</a>).
-        Passionate about Machine Learning, with a focus on AI Reasoning,
-        Reinforcement Learning, and Multimodal Learning.
-      </p>
-
-      <p>
-        I'm interested in understanding the mechanisms behind learning and reasoning in AI models, and in designing methods that make them more reliable and adaptive.
-      </p>
-
-      <p>
-        Feel free to contact me for research collaboration,
-        open-source projects, or technical discussions.
-      </p>
-
-
-      <!-- Education -->
-      <h2>Education</h2>
-
-      <ul>
+      <ol class="publication-list">
 
         <li>
+          <strong>Chia-Hsuan Hsu</strong>, Jun-En Ding, Hsin-Ling Hsu, Chih-Ho Hsu,
+          Shihao Yang, Li-Hung Yao, Chun-Chieh Liao, Feng Liu, Fang-Ming Hung.
+          <span class="author-pos">1st author</span>
+          <br>
 
-          <div class="entry-header">
+          <span class="title">
+            RGPO: Ranking-Guided Preference Optimization for Reliable Clinical Reasoning.
+          </span>
+          <br>
 
-            <span class="entry-title">
-              National Yang Ming Chiao Tung University (NYCU)
-            </span>
+          <span class="venue">
+            IEEE Transactions on Artificial Intelligence, 2026
+            (IEEE TAI, Q1 journal).
+          </span>
 
-            <span class="entry-date">
-              Sep 2026 – Present
-            </span>
-
+          <div class="links">
+            <a href="https://ieeexplore.ieee.org/document/11495200" target="_blank">[Paper]</a>
+            <a href="https://github.com/tongyu0924/RGPO" target="_blank">[Code]</a>
           </div>
-
-          <div class="entry-description">
-            M.S. in Electrical Engineering
-          </div>
-
         </li>
 
 
         <li>
+          Yung Wei Shueh<sup>*</sup>, Zhi-Jie Chen<sup>*</sup>,
+          <strong>Chia-Hsuan Hsu</strong>, Hsin-Ling Hsu, Donghua Zhang,
+          Chenwei Wu, Jun-En Ding, Tongze Zhang, Shihao Yang, Pengfei Hu,
+          Fang-Ming Hung, Feng Liu.
+          <span class="author-pos">2nd author</span>
+          <br>
 
-          <div class="entry-header">
+          <span class="title">
+            DIASENTINEL: An Auditable Multi-Agent System for Guideline-Grounded
+            Diabetes Risk Screening.
+          </span>
+          <br>
 
-            <span class="entry-title">
-              National Taiwan University of Science and Technology (NTUST)
-            </span>
+          <span class="venue">
+            Conference on Empirical Methods in Natural Language Processing
+            (EMNLP) 2026 Demo Track.
+          </span>
+          <br>
 
-            <span class="entry-date">
-              Sep 2022 – Jun 2026
-            </span>
+          <span class="author-note">
+            <sup>*</sup> Equal contribution.
+          </span>
 
+          <div class="links">
+            <a href="https://arxiv.org/abs/2608.31128" target="_blank">[Paper]</a>
           </div>
-
-          <div class="entry-description">
-            B.S. in Computer Science and Information Engineering
-          </div>
-
-        </li>
-
-      </ul>
-
-
-      <!-- Experience -->
-      <h2>Experience</h2>
-
-      <ul>
-
-        <li>
-
-          <div class="entry-header">
-
-            <span class="entry-title">
-              Student Researcher, Far Eastern Memorial Hospital
-            </span>
-
-            <span class="entry-date">
-              Jun 2025 – Present
-            </span>
-
-          </div>
-
-          <div class="entry-description">
-            Research on reinforcement learning for improving medical reasoning in LLMs, and interpretable representation learning with graph-structured concept representations for longitudinal prediction.
-          </div>
-
         </li>
 
 
         <li>
+          Hsin-Ling Hsu, Zizheng Wang<sup>*</sup>, Donghua Zhang<sup>*</sup>,
+          Nai-Chia Chen, Jerry Wang, Jun-En Ding, <strong>Chia-Hsuan Hsu</strong>,
+          Guoan Wang, Feng Liu, Fang-Ming Hung, Chenwei Wu,
+          Liyue Shen.
+          <span class="author-pos">6th author</span>
+          <br>
 
-          <div class="entry-header">
+          <span class="title">
+            MedAction: Towards Active Multi-turn Clinical Diagnostic LLMs.
+          </span>
+          <br>
 
-            <span class="entry-title">
-              AI Engineer (Part-Time), Toppan Security
-            </span>
+          <span class="venue">
+            Conference on Language Modeling (COLM), 2026.
+          </span>
+          <br>
 
-            <span class="entry-date">
-              Jun 2025 – Dec 2025
-            </span>
+          <span class="author-note">
+            <sup>*</sup> Equal contribution.
+          </span>
 
+          <div class="links">
+            <a href="https://arxiv.org/abs/2605.07305" target="_blank">[Paper]</a>
           </div>
-
-          <div class="entry-description">
-            Designed unsupervised methods for comparing detection models without ground truth,
-            and image augmentation and style transfer methods for data generation.
-          </div>
-
         </li>
 
 
         <li>
+          <strong>Chia-Hsuan Hsu</strong>, Jui-Ming Yao.
+          <span class="author-pos">1st author</span>
+          <br>
 
-          <div class="entry-header">
+          <span class="title">
+            Learning to Refine Hidden States for Reliable LLM Reasoning.
+          </span>
+          <br>
 
-            <span class="entry-title">
-              Student Researcher, National Taiwan University of Science and Technology
-            </span>
+          <span class="venue">
+            arXiv preprint.
+          </span>
 
-            <span class="entry-date">
-              May 2024 – Dec 2025
-            </span>
-
+          <div class="links">
+            <a href="https://arxiv.org/pdf/2606.17524" target="_blank">[Paper]</a>
+            <a href="https://github.com/tongyu0924/Learning-to-Refine-Hidden-States-for-Reliable-LLM-Reasoning" target="_blank">[Code]</a>
           </div>
-
-          <div class="entry-description">
-            Contributed to an Industrial Technology Research Institute (ITRI) project on bridge defect detection with YOLOv8.
-            Researched visual odometry and SLAM, supported by the NSTC College Student Research Scholarship.
-          </div>
-
         </li>
 
 
         <li>
+          Pin-Yen Chiu<sup>*</sup>, Dai-Jie Wu<sup>*</sup>, Po-Hsun Chu,
+          <strong>Chia-Hsuan Hsu</strong>,
+          Hsiang-Chen Chiu, Chih-Yu Wang, Jun-Cheng Chen.
+          <span class="author-pos">3rd author</span>
+          <br>
 
-          <div class="entry-header">
+          <span class="title">
+            StyleDiT: A Unified Framework for Diverse Child and Partner Faces
+            Synthesis with Style Latent Diffusion Transformer.
+          </span>
+          <br>
 
-            <span class="entry-title">
-              Student Researcher, Academia Sinica
-            </span>
+          <span class="venue">
+            IEEE International Conference on Automatic Face
+            and Gesture Recognition (FG), 2026.
+          </span>
+          <br>
 
-            <span class="entry-date">
-              Sep 2023 – Mar 2025
-            </span>
+          <span class="author-note">
+            <sup>*</sup> Equal contribution.
+          </span>
 
+          <div class="links">
+            <a href="https://arxiv.org/abs/2412.10785" target="_blank">[Paper]</a>
           </div>
-
-          <div class="entry-description">
-            Researched diffusion-based generative models for conditional image generation
-            and identity-controllable face synthesis.
-          </div>
-
         </li>
 
 
         <li>
+          <strong>Chia-Hsuan Hsu</strong>, Jun-En Ding, Hsin-Ling Hsu, Chih-Ho Hsu,
+          Li-Hung Yao, Chun-Chieh Liao, Feng Liu, Fang-Ming Hung.
+          <span class="author-pos">1st author</span>
+          <br>
 
-          <div class="entry-header">
+          <span class="title">
+            RPRO: Ranked Preference Reinforcement Optimization for Enhancing
+            Medical QA and Diagnostic Reasoning.
+          </span>
+          <br>
 
-            <span class="entry-title">
-              Google Developer Groups (GDG) On Campus NTUST
-            </span>
+          <span class="venue">
+            Conference on Neural Information Processing Systems
+            (NeurIPS) Workshop 2025.
+          </span>
 
-            <span class="entry-date">
-              Sep 2023 – Jun 2024
-            </span>
-
+          <div class="links">
+            <a href="https://neurips.cc/virtual/2025/loc/san-diego/124920" target="_blank">[Paper]</a>
+            <a href="https://tongyu0924.github.io/publication/rpro_poster.jpg" target="_blank">[Poster]</a>
           </div>
-
-          <div class="entry-description">
-            Designed and delivered Computer Vision courses for 20+ participants;
-            co-designed machine learning content for an AI camp.
-          </div>
-
         </li>
 
-      </ul>
 
-    </main>
+        <li>
+          <strong>Chia-Hsuan Hsu</strong>, Hsin-Chun Lin, Sin-Ye Jhong, Hui-Che Hsu,
+          Ming-Xian Hong, Yung-Yao Chen.
+          <span class="author-pos">1st author</span>
+          <br>
+
+          <span class="title">
+            VSTFusion-VO: Monocular Visual Odometry with Video Swin Transformer
+            Multimodal Fusion.
+          </span>
+          <br>
+
+          <span class="venue">
+            International Conference on Advanced Robotics and
+            Intelligent Systems (ARIS), 2025.
+          </span>
+          <br>
+
+          <span class="award">
+            Best Conference Paper Award: Honorary Mention.
+          </span>
+
+          <div class="links">
+            <a href="https://tongyu0924.github.io/VSTFusion-VO.pdf" target="_blank">[Paper]</a>
+            <a href="https://github.com/tongyu0924/VSTFusion-VO" target="_blank">[Code]</a>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
+
+    <section>
+      <h2>Under Review / Ongoing Work</h2>
+
+      <ol class="publication-list review-list">
+
+        <li>
+          Jun-En Ding, Yung Wei Shueh, Li-Hung Yao, Zhi-Jie Chen,
+          <strong>Chia-Hsuan Hsu</strong>, Shihao Yang, Chenwei Wu, Pengfei Hu,
+          Feng Liu, Fang-Ming Hung, Liqin Wang.
+          <span class="author-pos">5th author</span>
+          <br>
+
+          <span class="title">
+            Hierarchical Adaptive Retrieval and Planning for Multi-Specialty
+            Clinical Assessment Generation from Heterogeneous EHRs.
+          </span>
+          <br>
+
+          <span>(Under Review)</span>
+        </li>
+
+
+        <li>
+          <span class="title">
+            Encoding Is a Data Plane: GPU-Resident State Preparation for
+            Simulator-Based Quantum Machine Learning.
+          </span>
+          <br>
+
+          <span>(Ongoing Work on <a href="https://github.com/apache/mahout" target="_blank">Apache Mahout</a> QDP)</span>
+        </li>
+
+      </ol>
+    </section>
 
 
     <footer>
@@ -498,6 +449,5 @@
     </footer>
 
   </div>
-
 </body>
 </html>
