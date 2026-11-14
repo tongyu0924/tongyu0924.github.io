@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Publications | Tongyu</title>
 
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
   <style>
     :root {
       --primary-color: #0a192f;
@@ -163,6 +168,19 @@
     .links a:hover {
       text-decoration: underline;
     }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 4px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .meta i { margin-right: 5px; }
+
+    .stats strong { color: var(--text-color); }
 
     .review-list {
       counter-reset: publication 7;
@@ -437,7 +455,12 @@
           </span>
           <br>
 
-          <span>(Ongoing Work on <a href="https://github.com/apache/mahout" target="_blank">Apache Mahout</a> QDP, 2,300+ GitHub stars and 1,000+ forks)</span>
+          <span>(Ongoing Work on <a href="https://github.com/apache/mahout" target="_blank">Apache Mahout</a> QDP)</span>
+
+          <div class="meta">
+            <span class="stats"><i class="fa-solid fa-star"></i><strong>2,300+</strong> stars</span>
+            <span class="stats"><i class="fa-solid fa-code-fork"></i><strong>1,000+</strong> forks</span>
+          </div>
         </li>
 
       </ol>
