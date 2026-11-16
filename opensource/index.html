@@ -150,6 +150,17 @@
       font-size: 17px;
     }
 
+    .project-card + .project-card {
+      margin-top: 30px;
+    }
+
+    .project-card h3 .status {
+      margin-left: 6px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
     .project-card p {
       margin: 0 0 10px 0;
     }
@@ -220,7 +231,7 @@
     </header>
 
     <section>
-      <h2>Open Source Project</h2>
+      <h2>Open Source Projects</h2>
 
       <div class="project-card">
         <h3>
@@ -248,6 +259,33 @@
         </div>
 
         <a href="https://github.com/JasonHonKL/spy-search" target="_blank">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+
+      <div class="project-card">
+        <h3>
+          <a href="https://github.com/JasonHonKL/HashIndex" target="_blank">HashIndex</a>
+          <span class="status">(Ongoing Work)</span>
+        </h3>
+
+        <p>
+          Co-developing HashIndex, a vector-free retrieval approach that replaces embedding similarity
+          with LLM-generated page-level summaries, letting the LLM reason over document structure to
+          locate evidence for question answering.
+        </p>
+
+        <ul class="features">
+          <li>Vector-free document indexing via LLM-generated page summaries</li>
+          <li>LLM-guided evidence localization and QA over long documents</li>
+        </ul>
+
+        <div class="meta">
+          <span class="stats"><i class="fa-solid fa-star"></i><strong>50+</strong> stars</span>
+          <span><i class="fa-solid fa-code"></i>LLM · Document Indexing · Retrieval</span>
+        </div>
+
+        <a href="https://github.com/JasonHonKL/HashIndex" target="_blank">
           <i class="fa-brands fa-github"></i> GitHub
         </a>
       </div>
